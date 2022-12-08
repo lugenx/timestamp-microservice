@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 
+const currentTimeRoutes = require("./routes/currentTimeRoutes.js");
 const helloRoutes = require("./routes/helloRoutes.js");
 const dateRoutes = require("./routes/dateRoutes.js");
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
@@ -13,7 +14,7 @@ app.use(express.static("public"));
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/views/index.html");
 });
-
+app.use("/api", currentTimeRoutes);
 app.use("/api", helloRoutes);
 app.use("/api", dateRoutes);
 
