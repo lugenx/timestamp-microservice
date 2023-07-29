@@ -2,7 +2,7 @@ version: '3'
 services:
   web:
     build: .
-    expose:
-      - "${PORT}"
+    ports:
+      - "${PORT}:${PORT}"
     env_file:
       - .env
